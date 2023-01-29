@@ -1,10 +1,17 @@
 "use strict";
 function solveEquation(a, b, c) {
   let arr = [];
+  const discriminant= b**2-4*a*c;
   
-  if(`${b**2-4*a*c}` < 0) return arr;
-  else if (`${b**2-4*a*c}` == 0) return arr = [Number(`${-b/(2*a)}`)];
-  else return arr = [Number(Math.round(`${(-b + Math.sqrt(b) )/(2*a)}`)), Number(Math.round(`${(-b - Math.sqrt(b) )/(2*a)}`))];
+  if(discriminant < 0) return arr;
+  else if (discriminant === 0) {
+    arr= [-b/(2*a)];
+    return arr;
+  }  
+  else {
+    arr = [Math.round((-b + Math.sqrt(b) )/(2*a)), Math.round((-b - Math.sqrt(b) )/(2*a))];
+    return arr;
+  }
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
